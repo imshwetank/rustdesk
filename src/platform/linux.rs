@@ -746,6 +746,7 @@ pub fn is_root() -> bool {
     crate::username() == "root"
 }
 
+#[allow(dead_code)]
 fn is_opensuse() -> bool {
     if let Ok(res) = run_cmds("cat /etc/os-release | grep opensuse") {
         if !res.is_empty() {
@@ -1186,10 +1187,10 @@ mod desktop {
             if self.display.is_empty() {
                 self.display = ":0".to_owned();
             }
-            self.display = self
-                .display
-                .replace(&hbb_common::whoami::hostname(), "")
-                .replace("localhost", "");
+            self.display = match whoami::fallible::hostname() {
+                Ok(hostname) => self.display.replace(&hostname, "").replace("localhost", ""),
+                Err(_) => self.display.replace("localhost", ""),
+            };
         }
 
         fn get_home(&mut self) {
@@ -1422,6 +1423,7 @@ mod desktop {
     }
 }
 
+#[allow(dead_code)]
 pub struct WakeLock(Option<keepawake::AwakeHandle>);
 
 impl WakeLock {

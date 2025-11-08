@@ -69,6 +69,7 @@ pub mod client {
         conn: Arc<SyncConnection>,
         session: Path<'static>,
         stream: PwStreamInfo,
+        #[allow(dead_code)]
         resolution: (usize, usize),
         scale: Option<f64>,
     }

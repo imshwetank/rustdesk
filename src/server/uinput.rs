@@ -871,11 +871,16 @@ mod mouce {
     pub enum MouseButton {
         Left,
         Middle,
+        #[allow(dead_code)]
         Side,
+        #[allow(dead_code)]
         Extra,
         Right,
+        #[allow(dead_code)]
         Back,
+        #[allow(dead_code)]
         Forward,
+        #[allow(dead_code)]
         Task,
     }
 
@@ -883,7 +888,9 @@ mod mouce {
     pub enum ScrollDirection {
         Up,
         Down,
+        #[allow(dead_code)]
         Right,
+        #[allow(dead_code)]
         Left,
     }
 

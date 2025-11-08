@@ -6,7 +6,7 @@ use std::{io, sync::RwLock, time::Duration};
 
 use super::x11::PixelBuffer;
 
-pub struct Capturer(Display, Box<dyn Recorder>, Vec<u8>);
+pub struct Capturer(Display, Box<dyn Recorder>, #[allow(dead_code)] Vec<u8>);
 
 
 lazy_static::lazy_static! {

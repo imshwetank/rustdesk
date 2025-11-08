@@ -102,7 +102,9 @@ impl StateWindowFocus {
 struct Input {
     conn: i32,
     time: i64,
+    #[allow(dead_code)]
     x: i32,
+    #[allow(dead_code)]
     y: i32,
 }
 
@@ -448,8 +450,10 @@ lazy_static::lazy_static! {
 }
 static EXITING: AtomicBool = AtomicBool::new(false);
 
+#[allow(dead_code)]
 const MOUSE_MOVE_PROTECTION_TIMEOUT: Duration = Duration::from_millis(1_000);
 // Actual diff of (x,y) is (1,1) here. But 5 may be tolerant.
+#[allow(dead_code)]
 const MOUSE_ACTIVE_DISTANCE: i32 = 5;
 
 static RECORD_CURSOR_POS_RUNNING: AtomicBool = AtomicBool::new(false);
@@ -898,6 +902,7 @@ pub fn update_latest_input_cursor_time(conn: i32) {
 }
 
 #[inline]
+#[allow(dead_code)]
 fn get_last_input_cursor_pos() -> (i32, i32) {
     let lock = LATEST_PEER_INPUT_CURSOR.lock().unwrap();
     (lock.x, lock.y)

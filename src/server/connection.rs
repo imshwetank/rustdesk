@@ -4,7 +4,7 @@ use crate::clipboard::try_empty_clipboard_files;
 #[cfg(not(any(target_os = "android", target_os = "ios")))]
 use crate::clipboard::{update_clipboard, ClipboardSide};
 #[cfg(any(target_os = "windows", target_os = "linux", target_os = "macos"))]
-use crate::clipboard_file::*;
+// clipboard_file::* is used in other parts of the code via macro expansion
 #[cfg(target_os = "android")]
 use crate::keyboard::client::map_key_to_control_key;
 #[cfg(target_os = "linux")]
@@ -244,6 +244,7 @@ pub struct Connection {
     disable_audio: bool,
     // by peer
     #[cfg(any(target_os = "windows", target_os = "linux", target_os = "macos"))]
+    #[allow(dead_code)]
     enable_file_transfer: bool,
     // by peer
     audio_sender: Option<MediaSender>,

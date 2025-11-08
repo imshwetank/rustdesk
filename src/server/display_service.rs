@@ -152,6 +152,7 @@ pub fn restore_resolutions() {
 }
 
 #[inline]
+#[allow(dead_code)]
 fn is_capturer_mag_supported() -> bool {
     #[cfg(windows)]
     return scrap::CapturerMag::is_supported();
