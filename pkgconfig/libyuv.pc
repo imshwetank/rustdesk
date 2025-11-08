@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/x86_64-linux-gnu
+includedir=${prefix}/include
+
+Name: libyuv
+Description: YUV scaling and conversion library
+Version: 1883
+Libs: -L${libdir} -lyuv
+Cflags: -I${includedir} -I${includedir}/libyuv
